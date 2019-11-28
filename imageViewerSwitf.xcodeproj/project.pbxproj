@@ -21,6 +21,7 @@
 		1848BF001F8CB64900125075 /* WMImageViewerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848BEFF1F8CB64900125075 /* WMImageViewerScrollView.swift */; };
 		1848BF021F8CC0E500125075 /* WMImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848BF011F8CC0E500125075 /* WMImageCollectionViewCell.swift */; };
 		1848BF041F8D21AC00125075 /* ImageListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848BF031F8D21AC00125075 /* ImageListModel.swift */; };
+		7AB4DD99238FC7AA0071FB7F /* UIColor+Extension(wm).swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4DD98238FC7AA0071FB7F /* UIColor+Extension(wm).swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		1848BEFF1F8CB64900125075 /* WMImageViewerScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMImageViewerScrollView.swift; sourceTree = "<group>"; };
 		1848BF011F8CC0E500125075 /* WMImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		1848BF031F8D21AC00125075 /* ImageListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListModel.swift; sourceTree = "<group>"; };
+		7AB4DD98238FC7AA0071FB7F /* UIColor+Extension(wm).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension(wm).swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		1848BEBC1F8CA96F00125075 /* imageViewerSwitf */ = {
 			isa = PBXGroup;
 			children = (
+				7AB4DD97238FC7840071FB7F /* Tools */,
 				1848BEF51F8CB5EF00125075 /* Iamges */,
 				1848BEF91F8CB5EF00125075 /* ImageViewer */,
 				1848BEBD1F8CA96F00125075 /* AppDelegate.swift */,
@@ -160,6 +163,14 @@
 				1848BF031F8D21AC00125075 /* ImageListModel.swift */,
 			);
 			path = ImageViewer;
+			sourceTree = "<group>";
+		};
+		7AB4DD97238FC7840071FB7F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				7AB4DD98238FC7AA0071FB7F /* UIColor+Extension(wm).swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +241,7 @@
 				TargetAttributes = {
 					1848BEB91F8CA96F00125075 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 49ZCVSQ8X9;
 						ProvisioningStyle = Automatic;
 					};
 					1848BECD1F8CA96F00125075 = {
@@ -249,6 +261,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -302,6 +315,7 @@
 				1848BEC01F8CA96F00125075 /* ViewController.swift in Sources */,
 				1848BEBE1F8CA96F00125075 /* AppDelegate.swift in Sources */,
 				1848BEFE1F8CB5EF00125075 /* WMImageViewerViewController.swift in Sources */,
+				7AB4DD99238FC7AA0071FB7F /* UIColor+Extension(wm).swift in Sources */,
 				1848BF041F8D21AC00125075 /* ImageListModel.swift in Sources */,
 				1848BF001F8CB64900125075 /* WMImageViewerScrollView.swift in Sources */,
 				1848BF021F8CC0E500125075 /* WMImageCollectionViewCell.swift in Sources */,
@@ -456,11 +470,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 49ZCVSQ8X9;
 				INFOPLIST_FILE = imageViewerSwitf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.wumeng.imageViewerSwitf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -468,11 +483,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 49ZCVSQ8X9;
 				INFOPLIST_FILE = imageViewerSwitf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.wumeng.imageViewerSwitf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

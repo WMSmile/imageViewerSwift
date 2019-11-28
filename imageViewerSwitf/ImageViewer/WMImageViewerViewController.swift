@@ -15,7 +15,7 @@ class WMImageViewerViewController: UIViewController  , UICollectionViewDelegate 
     private let reuseIdentifier = "Cell"
     
     var mainScrollView:UIScrollView?;
-    var imageList:[ImageBaseModel] = []{
+    var imageList:[ImageBaseModelProtocol] = []{
         didSet{
             if colltionView != nil
             {
@@ -73,12 +73,36 @@ class WMImageViewerViewController: UIViewController  , UICollectionViewDelegate 
         // Configure the cell
         cell.backgroundColor = UIColor.lightGray;
         //MARK:- 可以根据自己使用的第三方加载网路图片
-        cell.contentScrollView?.imageView?.image = UIImage.init(named: imageList[indexPath.row].getImageUrl!()) ;
+        cell.contentScrollView?.imageView?.image = UIImage.init(named: imageList[indexPath.row].getImageUrl()) ;
         //MARK:- 代码。。。
+        cell.saveCallback =  {[unowned self] (item) in
+            self.WM_FUNC_saveImage(item as? UIImage)
+        }
+        
+        
         return cell
     }
 
-    
+    //MARK:- <#Description#>
+    func WM_FUNC_saveImage(_ image:UIImage?) -> Void {
+        
+        let vc = UIAlertController.init(title: "提示", message: "是否要保存图片", preferredStyle: UIAlertController.Style.alert)
+        
+        vc.addAction(UIAlertAction.init(title: "确定", style: UIAlertAction.Style.default, handler: { (action) in
+            if (image != nil){
+                UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil);
+                print("save success")
+            }
+        }))
+        vc.addAction(UIAlertAction.init(title: "取消", style: UIAlertAction.Style.cancel, handler: { (action) in
+            print("cancel")
+        }))
+        self.present(vc, animated: true, completion: {
+            print("finish");
+            
+        })
+        
+    }
     
     
     // MARK: UICollectionViewDelegate

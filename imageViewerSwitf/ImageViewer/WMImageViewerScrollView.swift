@@ -28,7 +28,6 @@ class WMImageViewerScrollView: UIScrollView ,UIScrollViewDelegate{
         self.maximumZoomScale = 2.0
         self.delegate = self
         
-        
         self.imageView = UIImageView(frame: self.bounds)
         self.addSubview(imageView!);
         imageView?.contentMode = .scaleAspectFit
@@ -43,7 +42,7 @@ class WMImageViewerScrollView: UIScrollView ,UIScrollViewDelegate{
     }
     // MARK: - UIScrollViewDelegate
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-//        print("1 scrollViewDidZoom")
+//        print("scrollViewDidZoom")
         // 设置被缩放的对应视图
         for imageview in scrollView.subviews
         {
@@ -52,20 +51,18 @@ class WMImageViewerScrollView: UIScrollView ,UIScrollViewDelegate{
                 return imageview
             }
         }
-        
         return nil
     }
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?)
     {
-//        print("2 scrollViewWillBeginZooming")
+//        print("scrollViewWillBeginZooming")
 //        
-//        print("view = \(view)")
+
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView)
     {
-//        print("3 scrollViewDidZoom")
-        
+
         // 居中显示
         let imageview = scrollView.subviews.first as! UIImageView
         self.centerShow(scrollview: scrollView, imageview: imageview)
@@ -73,9 +70,7 @@ class WMImageViewerScrollView: UIScrollView ,UIScrollViewDelegate{
     
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat)
     {
-//        print("4 scrollViewDidEndZooming")
-//        print("scale = \(scale)，view = \(view)")
-        
+
         // 缩放效果
         // 放大或缩小
         if scrollView.minimumZoomScale >= scale
@@ -91,7 +86,7 @@ class WMImageViewerScrollView: UIScrollView ,UIScrollViewDelegate{
     
     // MARK: - 双击缩放
     var isScaleBig:Bool = false
-    func doubleClick(gestureRecognizer:UITapGestureRecognizer)
+    @objc func doubleClick(gestureRecognizer:UITapGestureRecognizer)
     {
         let imageview = gestureRecognizer.view as! UIImageView
         let scrollview = imageview.superview as! UIScrollView

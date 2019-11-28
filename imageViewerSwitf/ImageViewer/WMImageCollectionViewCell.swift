@@ -12,6 +12,8 @@ class WMImageCollectionViewCell: UICollectionViewCell {
     
     var contentScrollView:WMImageViewerScrollView?
     
+    var saveCallback:((_ object:Any?) -> Void)? = nil
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame);
@@ -28,23 +30,23 @@ class WMImageCollectionViewCell: UICollectionViewCell {
         self.contentScrollView = WMImageViewerScrollView.init(frame: self.bounds);
         self.contentScrollView?.backgroundColor = UIColor.clear;
         self.contentView.addSubview(contentScrollView!);
+        
+        //长按保存图片
+        let longPress:UILongPressGestureRecognizer  = UILongPressGestureRecognizer.init(target: self, action: #selector(longPress(_:)));
+        self.addGestureRecognizer(longPress);
 
     }
-    
+    // longPress
+    @objc func longPress(_ sender:UILongPressGestureRecognizer) -> Void {
+        
+        
+        if self.saveCallback != nil{
+            self.saveCallback!(self.contentScrollView?.imageView?.image ?? nil);
+        }
+        
+        
+        
+    }
 
 
 }
-
-//extension UIColor {
-//    /**
-//     *  随机颜色
-//     */
-//    class var randomColor: UIColor {
-//        get {
-//            let red = CGFloat(arc4random()%256)/255.0
-//            let green = CGFloat(arc4random()%256)/255.0
-//            let blue = CGFloat(arc4random()%256)/255.0
-//            return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-//        }
-//}
-//}
